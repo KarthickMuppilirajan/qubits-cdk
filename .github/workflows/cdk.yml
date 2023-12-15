@@ -22,7 +22,7 @@ jobs:
 
       - name: Set CDK Parameters
         run: |
-          echo "AWS_CDK_MY_PARAMETER=['dev', 'test', 'prod']" >> $GITHUB_ENV
+          echo "AWS_CDK_MY_PARAMETER=['staging']" >> $GITHUB_ENV
 
       - name: NPM packages
         run: |
@@ -44,9 +44,9 @@ jobs:
         run: |
           npm install -g aws-cdk
 
-      # - name: cdk build
-      #   run: |
-      #     npm run build
+      - name: cdk build
+        run: |
+          npm run build
 
       - name: cdk deploy
         run: |

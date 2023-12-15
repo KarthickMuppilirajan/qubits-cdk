@@ -18,8 +18,8 @@ export class CdkStarterStack extends cdk.Stack {
       this,
       'environments-param',
       {
-        parameterName: '/my-site/environments',
-        stringListValue: ['dev', 'test', 'prod'],
+        parameterName: '/qubits/environments',
+        stringListValue: ['staging'],
         tier: ssm.ParameterTier.ADVANCED,
       },
     );
