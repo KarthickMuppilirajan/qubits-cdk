@@ -26,7 +26,13 @@ jobs:
 
       - name: NPM packages
         run: |
+<<<<<<< HEAD
           npm install @aws-cdk-lib
+=======
+          # npm install -g aws-cdk
+          npm install -g aws-cdk-lib
+          cdk version
+>>>>>>> 6dbcf9b31e231d24cb00599514716e75daa22c27
           npm install
           
       
