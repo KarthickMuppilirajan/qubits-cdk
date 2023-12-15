@@ -1,0 +1,19 @@
+{
+  "version": "35.0.0",
+  "files": {
+    "a460f1d5b31bc61384a0abd27e7a2af8f53edd77d08999a510ced24164ff6e0d": {
+      "source": {
+        "path": "qubits-staging-v3.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "a460f1d5b31bc61384a0abd27e7a2af8f53edd77d08999a510ced24164ff6e0d.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
