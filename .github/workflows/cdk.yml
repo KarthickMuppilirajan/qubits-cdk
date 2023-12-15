@@ -27,7 +27,7 @@ jobs:
       - name: AWS CDK Deploy
         run: |
           # npm install -g aws-cdk
-          npm install @aws-cdk-lib
+          npm install -g aws-cdk-lib
           cdk version
           npm install
           npm run build
