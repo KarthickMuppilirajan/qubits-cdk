@@ -26,7 +26,6 @@ jobs:
 
       - name: NPM packages
         run: |
-          npm install @aws-cdk-lib
           npm install
           
       
