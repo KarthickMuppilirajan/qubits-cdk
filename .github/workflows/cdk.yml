@@ -29,9 +29,14 @@ jobs:
           npm install
           
       
-      - name: cdk deploy
+      - name: Installing cdk 
         run: |
           npm install -g aws-cdk
+
+      - name: cdk build
+        run: |
           npm run build
-          npm update
+
+      - name: cdk deploy
+        run: |
           cdk deploy
