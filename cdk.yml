@@ -1,0 +1,13 @@
+- name: Set CDK Parameters
+        run: |
+          echo "AWS_CDK_MY_PARAMETER=qb-cdk" >> $GITHUB_ENV
+
+      - name: AWS CDK Deploy
+        run: |
+          npm install -g aws-cdk
+          npm install
+          cdk deploy
+        env:
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
