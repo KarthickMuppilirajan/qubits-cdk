@@ -1,305 +1,82 @@
 {
-  "version": "35.0.0",
+  "version": "17.0.0",
   "artifacts": {
-    "qubits-staging-v3.assets": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "cdk-stack.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "qubits-staging-v3.assets.json",
+        "file": "cdk-stack.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "qubits-staging-v3": {
+    "cdk-stack": {
       "type": "aws:cloudformation:stack",
-      "environment": "aws://unknown-account/unknown-region",
+      "environment": "aws://784796977469/us-east-1",
       "properties": {
-        "templateFile": "qubits-staging-v3.template.json",
-        "terminationProtection": false,
+        "templateFile": "cdk-stack.template.json",
         "validateOnSynth": false,
-        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
-        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a460f1d5b31bc61384a0abd27e7a2af8f53edd77d08999a510ced24164ff6e0d.json",
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::784796977469:role/cdk-hnb659fds-deploy-role-784796977469-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::784796977469:role/cdk-hnb659fds-cfn-exec-role-784796977469-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-784796977469-us-east-1/2995c07d1a5d899f7a4a87b2d175426b11326ae1eecae175f44ffab1449c6146.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "qubits-staging-v3.assets"
+          "cdk-stack.assets"
         ],
         "lookupRole": {
-          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "arn": "arn:${AWS::Partition}:iam::784796977469:role/cdk-hnb659fds-lookup-role-784796977469-us-east-1",
           "requiresBootstrapStackVersion": 8,
           "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
         }
       },
       "dependencies": [
-        "qubits-staging-v3.assets"
+        "cdk-stack.assets"
       ],
       "metadata": {
-        "/qubits-staging-v3/vpc/Resource": [
+        "/cdk-stack/alerts-email-param/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "vpcA2121C38"
+            "data": "alertsemailparamFD828440"
           }
         ],
-        "/qubits-staging-v3/vpc/PublicSubnet1/Subnet": [
+        "/cdk-stack/environments-param/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet1Subnet2E65531E"
+            "data": "environmentsparamDA4960CF"
           }
         ],
-        "/qubits-staging-v3/vpc/PublicSubnet1/RouteTable": [
+        "/cdk-stack/imported-param-3-value": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet1RouteTable48A2DF9B"
+            "data": "importedparam3value"
           }
         ],
-        "/qubits-staging-v3/vpc/PublicSubnet1/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet1RouteTableAssociation5D3F4579"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PublicSubnet1/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet1DefaultRoute10708846"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PublicSubnet1/EIP": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet1EIPDA49DCBE"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PublicSubnet1/NATGateway": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet1NATGateway9C16659E"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PublicSubnet2/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet2Subnet009B674F"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PublicSubnet2/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet2RouteTableEB40D4CB"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PublicSubnet2/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet2RouteTableAssociation21F81B59"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PublicSubnet2/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet2DefaultRouteA1EC0F60"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PublicSubnet2/EIP": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet2EIP9B3743B1"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PublicSubnet2/NATGateway": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPublicSubnet2NATGateway9B8AE11A"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PrivateSubnet1/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPrivateSubnet1Subnet934893E8"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PrivateSubnet1/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPrivateSubnet1RouteTableB41A48CC"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PrivateSubnet1/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPrivateSubnet1RouteTableAssociation67945127"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PrivateSubnet1/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPrivateSubnet1DefaultRoute1AA8E2E5"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PrivateSubnet2/Subnet": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPrivateSubnet2Subnet7031C2BA"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PrivateSubnet2/RouteTable": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPrivateSubnet2RouteTable7280F23E"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PrivateSubnet2/RouteTableAssociation": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPrivateSubnet2RouteTableAssociation007E94D3"
-          }
-        ],
-        "/qubits-staging-v3/vpc/PrivateSubnet2/DefaultRoute": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcPrivateSubnet2DefaultRouteB0E07F99"
-          }
-        ],
-        "/qubits-staging-v3/vpc/IGW": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcIGWE57CBDCA"
-          }
-        ],
-        "/qubits-staging-v3/vpc/VPCGW": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "vpcVPCGW7984C166"
-          }
-        ],
-        "/qubits-staging-v3/Cluster/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "ClusterEB0386A7"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/LB/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceLBB353E155"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/LB/SecurityGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceLBSecurityGroup5F444C78"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/LB/SecurityGroup/to qubitsstagingv3FargateServiceSecurityGroup7529DA85:3000": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceLBSecurityGrouptoqubitsstagingv3FargateServiceSecurityGroup7529DA85300021614649"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/LB/PublicListener/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceLBPublicListener4B4929CA"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/LB/PublicListener/ECSGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceLBPublicListenerECSGroupBE57E081"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/LoadBalancerDNS": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceLoadBalancerDNS9433D5F6"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/ServiceURL": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceServiceURL47701F45"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/TaskDef/TaskRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceTaskDefTaskRole8CDCF85E"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/TaskDef/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceTaskDef940E3A80"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/TaskDef/qb-container/LogGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceTaskDefqbcontainerLogGroupFEA2B220"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/TaskDef/ExecutionRole/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceTaskDefExecutionRole9194820E"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/TaskDef/ExecutionRole/DefaultPolicy/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceTaskDefExecutionRoleDefaultPolicy827E7CA2"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/Service/Service": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceECC8084D"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/Service/SecurityGroup/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceSecurityGroup262B61DD"
-          }
-        ],
-        "/qubits-staging-v3/FargateService/Service/SecurityGroup/from qubitsstagingv3FargateServiceLBSecurityGroupA1F21E8D:3000": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "FargateServiceSecurityGroupfromqubitsstagingv3FargateServiceLBSecurityGroupA1F21E8D3000ACBF851C"
-          }
-        ],
-        "/qubits-staging-v3/CDKMetadata/Default": [
+        "/cdk-stack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/qubits-staging-v3/CDKMetadata/Condition": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "CDKMetadataAvailable"
-          }
-        ],
-        "/qubits-staging-v3/BootstrapVersion": [
+        "/cdk-stack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/qubits-staging-v3/CheckBootstrapVersion": [
+        "/cdk-stack/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "qubits-staging-v3"
-    },
-    "Tree": {
-      "type": "cdk:tree",
-      "properties": {
-        "file": "tree.json"
-      }
+      "displayName": "cdk-stack"
     }
   }
 }

@@ -1,3 +1,4 @@
 {
-  "app": "node index"
+  "app": "npx ts-node --prefer-ts-exts bin/cdk-starter.ts",
+  "context": {}
 }

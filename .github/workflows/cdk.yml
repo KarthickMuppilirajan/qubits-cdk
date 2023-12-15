@@ -3,7 +3,7 @@ name: Deploy to Amazon ECS
 on:
   push:
     branches:
-      - main
+      - ssm-cdk
 
 env:
      AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
@@ -22,7 +22,7 @@ jobs:
 
       - name: Set CDK Parameters
         run: |
-          echo "AWS_CDK_MY_PARAMETER=qb-cdk" >> $GITHUB_ENV
+          echo "AWS_CDK_MY_PARAMETER=['dev', 'test', 'prod']" >> $GITHUB_ENV
 
       - name: NPM packages
         run: |
