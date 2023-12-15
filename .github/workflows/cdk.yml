@@ -24,13 +24,14 @@ jobs:
         run: |
           echo "AWS_CDK_MY_PARAMETER=qb-cdk" >> $GITHUB_ENV
 
-      - name: AWS CDK Deploy
+      - name: NPM packages
         run: |
-          # npm install -g aws-cdk
           npm install @aws-cdk-lib
-          cdk version
           npm install
+          
+      
+      - name: cdk deploy
+        run: |
           npm run build
           npm update
-          # cdk bootstrap
           cdk deploy
