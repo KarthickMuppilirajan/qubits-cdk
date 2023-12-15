@@ -29,5 +29,6 @@ jobs:
           npm install -g aws-cdk
           npm install
           npm run build
+          npm update
           cdk bootstrap
           cdk deploy
