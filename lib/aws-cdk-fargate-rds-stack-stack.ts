@@ -5,13 +5,7 @@ import { CfnDBCluster, CfnDBInstance, CfnDBSubnetGroup } from '@aws-cdk/aws-rds'
 import secretsManager = require('@aws-cdk/aws-secretsmanager');
 import ssm = require('@aws-cdk/aws-ssm');
 import * as cdk from '@aws-cdk/core';
-// import { Construct, Stack } from '@aws-cdk_lib';
-// import * as s3 from '@aws-cdk/aws-s3';
-// import type { CloudAssembly } from './cloud-assembly';
-// import * as cdk from '@aws-cdk-lib';
-// import * as iam from 'aws-cdk-lib/aws-iam';
-// import * as kms from 'aws-cdk-lib/aws-kms';
-// import { Construct } from 'constructs';
+
 
 export class AwsCdkFargateRdsStackStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
