@@ -5,7 +5,7 @@ import { CfnDBCluster, CfnDBInstance, CfnDBSubnetGroup } from '@aws-cdk/aws-rds'
 import secretsManager = require('@aws-cdk/aws-secretsmanager');
 import ssm = require('@aws-cdk/aws-ssm');
 import * as cdk from '@aws-cdk/core';
-import { Construct, Stack } from 'aws-cdk-lib';
+// import { Construct, Stack } from 'aws-cdk-lib';
 // import * as s3 from '@aws-cdk/aws-s3';
 // import type { CloudAssembly } from './cloud-assembly';
 // import * as cdk from '@aws-cdk-lib';
