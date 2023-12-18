@@ -43,5 +43,4 @@ jobs:
 
       - name: Deploy CDK Stack
         run: |
-          npm install
           cdk deploy --require-approval never --context existingStackName=${{ env.AWS_STACK_NAME }} --context parameterValue=${{ env.PARAMETER_VALUE }}
