@@ -9,6 +9,7 @@ env:
      AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+     AWS_STACK_NAME: ${{ secrets.STACK_NAME }}
 
 jobs:
   deploy:
@@ -50,4 +51,4 @@ jobs:
 
       - name: cdk deploy
         run: |
-          cdk deploy --require-approval never --context existingStackName=${{ env.AwsCdkFargateRdsStackStack }}
+          cdk deploy --require-approval never --context existingStackName=${{ env.AWS_STACK_NAME }}
