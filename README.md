@@ -1,44 +1,34 @@
-# Using SSM Parameters in AWS CDK - Complete Guide
+# Demostration on using `aws-cdk` for Load-Balanced Fargate Service with RDS Database
 
-A repository for an article on
-[bobbyhadz.com](https://bobbyhadz.com/blog/aws-cdk-ssm-parameters)
+This is a demo project for showcasing how to use `aws-cdk` to deploy a classic 3-tier web service with load-balancers, docker containers runnning application codes, and a relational database for persistant data. 
 
-> If you use CDK v1, switch to the cdk-v1 branch
+We use AWS Elastic Load-balancer, AWS ECS Fargate for running Docker containers, and RDS Aurora for relational database.
 
-## How to Use
+| Tier | Componenet | AWS Service |
+|------|------------|-------------|
+| 1 | Load-balancer | AWS ELB |
+| 2 | Application Logic | AWS ECS Fargate |
+| 3 | Database | AWS RDS Aurora |
 
-1. Clone the repository
+This projects uses a [simple express app with database connection](https://github.com/billykong/express-database-checker) for the application logic. You may need to replace the container image `billykong/express-database-checker` with your own Docker image if you want to reuse the template.
 
-2. Install the dependencies
+The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
-```bash
-npm install
+## Install AWS-CDK
+```
+npm install -g aws-cdk
 ```
 
-3. Create the secure string parameter we'll import the stack:
+## Useful commands
 
-```bash
-aws ssm put-parameter \
-	--name "/my-site/db-password" \
-	--value "dogsandcats123" \
-	--type "SecureString"
-```
+ * `npm run build`   compile typescript to js
+ * `npm run watch`   watch for changes and compile
+ * `npm run test`    perform the jest unit tests
+ * `cdk deploy`      deploy this stack to your default AWS account/region
+ * `cdk diff`        compare deployed stack with current state
+ * `cdk synth`       emits the synthesized CloudFormation template
 
-4. Create the CDK stack
 
-```bash
-npx aws-cdk deploy \
-  --outputs-file ./cdk-outputs.json
-```
-
-5. Open the AWS CloudFormation Console and the stack should be created in your
-   default region
-
-6. Cleanup - delete the stack and the secure SSM parameter:
-
-```bash
-npx aws-cdk destroy
-
-aws ssm delete-parameter \
-	--name "/my-site/db-password"
-```
+## Notes
+- We should install the same version of `aws-cdk` and other `@aws-cdk/*` dependencies. It seems even minor version difference may be incompatible.
+- This project uses `v1.38.0` for `@aws-cdk/*` and tested with `aws-cdk@1.38.0`.

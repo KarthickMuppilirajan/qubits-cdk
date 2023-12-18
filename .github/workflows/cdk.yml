@@ -1,54 +1,47 @@
-name: Deploy to Amazon ECS
+name: CDK Deploy
 
 on:
   push:
     branches:
-      - ssm-cdk
-
-env:
-     AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
-     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-     AWS_STACK_NAME: ${{ secrets.STACK_NAME }}
+      - cdk-parameter
 
 jobs:
   deploy:
-    name: Deploy
     runs-on: ubuntu-latest
-    # environment: development
+
+    env:
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_STACK_NAME: ${{ secrets.STACK_NAME }}
+      PARAMETER_STORE_KEY: ${{ secrets.PARAMETER_STORE_KEY }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: Set CDK Parameters
-        run: |
-          echo "AWS_CDK_MY_PARAMETER=['${{ secrets.CDK_PARAMETER }}']" >> $GITHUB_ENV
-
-      - name: NPM packages
-        run: |
-          npm install
-
-      - name: Installing AWS CLI
-        run: |
-            sudo apt-get update
-            sudo apt-get install -y awscli
-
-      - name: Set up AWS CLI
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-              aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-              aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-              aws-region: ${{ secrets.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Installing cdk 
+      - name: Retrieve Parameter Store Value
+        id: parameter-store
         run: |
-          npm install -g aws-cdk
+          PARAMETER_VALUE=$(aws ssm get-parameter --name ${{ env.PARAMETER_STORE_KEY }} --query Parameter.Value --output text)
+          echo "PARAMETER_VALUE=$PARAMETER_VALUE" >> $GITHUB_ENV
 
-      # - name: cdk build
-      #   run: |
-      #     npm run build
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '14'
 
-      - name: cdk deploy
+      - name: Install CDK
+        run: npm install -g aws-cdk
+
+      - name: Deploy CDK Stack
         run: |
-          cdk deploy --require-approval never --context existingStackName=${{ env.AWS_STACK_NAME }}
+          npm install
+          cdk deploy --require-approval never --context existingStackName=${{ env.AWS_STACK_NAME }} --context parameterValue=${{ env.PARAMETER_VALUE }}
