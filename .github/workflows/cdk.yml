@@ -48,4 +48,4 @@ jobs:
 
       - name: deploy CDK Stack
         run: |
-          cdk deploy --require-approval never --context parameterValue=${{ env.PARAMETER_VALUE }}
+          cdk deploy --require-approval never --context parameterValue=AwsCdkFargateRdsStackStack
