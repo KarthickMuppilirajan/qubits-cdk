@@ -33,10 +33,9 @@ jobs:
           PARAMETER_VALUE=$(aws ssm get-parameter --name ${{ env.PARAMETER_STORE_KEY }} --query Parameter.Value --output text)
           echo "PARAMETER_VALUE=$PARAMETER_VALUE" >> $GITHUB_ENV
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '14'
+      - name: NPM packages
+        run: |
+          npm install
 
       - name: Install CDK
         run: npm install -g aws-cdk
