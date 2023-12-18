@@ -50,4 +50,4 @@ jobs:
 
       - name: cdk deploy
         run: |
-          cdk deploy --require-approval never --context existingStackName="AwsCdkFargateRdsStackStack"
+          cdk deploy --all --require-approval never 
