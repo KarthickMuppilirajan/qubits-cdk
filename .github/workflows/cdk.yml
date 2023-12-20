@@ -41,11 +41,11 @@ jobs:
         run:  | 
           npm install -g aws-cdk
 
-      # - name: Install dependancy
-      #   run: | 
-      #     cdk bootstrap
-      #     npm run build
+      - name: Install dependancy
+        run: | 
+          cdk bootstrap
+          npm run build
 
       - name: deploy CDK Stack
         run: |
-          cdk deploy --require-approval never --context parameterValue=${{ env.PARAMETER_VALUE }}
+          cdk deploy --require-approval never --context parameterValue= ${{env.PARAMETER_VALUE }}
