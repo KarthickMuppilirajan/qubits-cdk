@@ -43,8 +43,7 @@ jobs:
 
       - name: Install dependancy
         run: | 
-          npm install construct
-          npm update aws-cdk-lib aws-cdk
+          npm run build
 
       - name: deploy CDK Stack
         run: |
