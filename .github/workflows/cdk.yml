@@ -41,9 +41,10 @@ jobs:
         run:  | 
           npm install -g aws-cdk
 
-      # - name: Install dependancy
-      #   run: | 
-      #     npm run build
+      - name: Install dependancy
+        run: | 
+          cdk bootstrap
+          npm run build
 
       - name: deploy CDK Stack
         run: |
