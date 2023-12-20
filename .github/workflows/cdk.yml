@@ -44,6 +44,10 @@ jobs:
       - name: Install dependancy
         run: | 
           npm install ts-node
+
+      - name: Install cdk lib file
+        run: | 
+         npm install aws-cdk-lib
       
       - name: build command
         run: | 
