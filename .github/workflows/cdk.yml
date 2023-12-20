@@ -53,6 +53,6 @@ jobs:
       #   run: | 
       #     npm run build
 
-      - name: deploy CDK Stack
+      - name: Deploy CDK Stack
         run: |
           cdk deploy --require-approval never --context parameterValue= ${{env.PARAMETER_VALUE }}
