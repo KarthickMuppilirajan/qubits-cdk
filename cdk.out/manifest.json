@@ -6,7 +6,7 @@
       "properties": {
         "file": "tree.json"
       }
-    },
+    },  
     "AwsCdkFargateRdsStackStack": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://784796977469/us-east-1",

@@ -1,6 +1,6 @@
 import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import * as AwsCdkFargateRdsStack from '../lib/aws-cdk-fargate-rds-stack-stack';
+import * as AwsCdkFargateRdsStack from '../lib/QbS3Stack';
 
 test('Empty Stack', () => {
     const app = new cdk.App();
