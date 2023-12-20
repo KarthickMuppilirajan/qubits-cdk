@@ -45,7 +45,7 @@ jobs:
         run: | 
           npm install ts-node
       
-      - name: Build command
+      - name: build command
         run: | 
           npm run build
 
