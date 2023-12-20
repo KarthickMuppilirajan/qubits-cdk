@@ -47,11 +47,20 @@ jobs:
 
       - name: Install cdk lib file
         run: | 
-         npm install aws-cdk-lib
+          npm install aws-cdk-lib
+          npm install @aws-cdk/aws-ec2
+          npm install  @aws-cdk/aws-ecs
+          npm install  @aws-cdk/aws-ecs-patterns
+          npm install @aws-cdk/aws-rds
+          npm install @aws-cdk/aws-s3
+          npm install @aws-cdk/aws-secretsmanager
+          npm install @aws-cdk/aws-ssm
+          npm install @aws-cdk/core
+          npm install  construct
       
-      # - name: Build command
-      #   run: | 
-      #     npm run build
+      - name: Build command
+        run: | 
+          npm run build
 
       - name: Deploy CDK Stack
         run: |
