@@ -2,7 +2,7 @@
   "name": "aws-cdk-fargate-rds-stack",
   "version": "0.1.0",
   "bin": {
-    "aws-cdk-fargate-rds-stack": "bin/aws-cdk-fargate-rds-stack.js"
+    "aws-cdk-fargate-rds-stack": "bin/QbS3Stack.js"
   },
   "scripts": {
     "build": "tsc",
