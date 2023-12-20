@@ -44,6 +44,10 @@ jobs:
       - name: Install dependancy
         run: | 
           npm install ts-node
+      
+      - name: Build command
+        run: | 
+          npm run build
 
       - name: deploy CDK Stack
         run: |
